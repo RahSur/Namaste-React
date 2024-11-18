@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 //const head = React.createElement("h1", { id: "heading" }, "Hello World from react!");
 
 const parent = React.createElement("div", { id: "parent" },
