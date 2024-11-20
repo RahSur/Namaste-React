@@ -1,3 +1,27 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
 #heading{
     color: red;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    width: 100%;
+    background-color: #b5b5b5;
+    max-width: 100%;
+    padding: 8px 32px;
+}
+
+.header .search{
+    width:80%;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 16px;
 }
