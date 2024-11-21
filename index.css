@@ -38,8 +38,6 @@
 }
 .card{
     width: 200px;
-    min-height: 350px;
-    height: 100%;
     padding: 12px;
     background-color:wheat;
     border-radius: 12px;

@@ -15,7 +15,7 @@ import ReactDOM from 'react-dom/client';
  *      -- Links
  */
 
-const data = [
+const dataList = [
     {
         "info": {
             "id": "234875",
@@ -729,13 +729,14 @@ const Header = () => {
     )
 }
 
-const Card = ({ name, cost, cuisines, cloudinaryImageId }) => {
+const Card = ({ data }) => {
+    const { cloudinaryImageId, name, cuisines, costForTwo } = data?.info
     return (
         <div className='card'>
             <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
             <h3>{name}</h3>
             <p>{cuisines.join(", ")}</p>
-            <p>{cost}</p>
+            <p>{costForTwo}</p>
         </div>
     )
 }
@@ -745,12 +746,9 @@ const Body = () => {
         <div className='body'>
             <div className='search'>Search Restaurants...</div>
             <div className='card-container'>
-                <Card name={data[0].info.name} cost={data[0].info.costForTwo} cuisines={data[0].info.cuisines} cloudinaryImageId={data[0].info.cloudinaryImageId} />
-                <Card name={data[1].info.name} cost={data[1].info.costForTwo} cuisines={data[1].info.cuisines} cloudinaryImageId={data[1].info.cloudinaryImageId} />
-                <Card name={data[2].info.name} cost={data[2].info.costForTwo} cuisines={data[2].info.cuisines} cloudinaryImageId={data[2].info.cloudinaryImageId} />
-                <Card name={data[3].info.name} cost={data[3].info.costForTwo} cuisines={data[3].info.cuisines} cloudinaryImageId={data[3].info.cloudinaryImageId} />
-                <Card name={data[4].info.name} cost={data[4].info.costForTwo} cuisines={data[4].info.cuisines} cloudinaryImageId={data[4].info.cloudinaryImageId} />
-                <Card name={data[5].info.name} cost={data[5].info.costForTwo} cuisines={data[5].info.cuisines} cloudinaryImageId={data[5].info.cloudinaryImageId} />
+                {dataList.map(data => (
+                    <Card key={data.info.id} data={data} />
+                ))}
             </div>
         </div>
     )
