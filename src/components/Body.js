@@ -1,10 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Card from './Card';
 import { dataList } from '../utils/mockData';
 
 const Body = () => {
     const [restaurants, setRestaurants] = useState(dataList);
     const [searchText, setSearchText] = useState("");
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+        console.log(json);
+    }
+
 
     const topRated = () => {
         const filtered = restaurants.filter((d) => d.info.avgRating >= 4.5);
