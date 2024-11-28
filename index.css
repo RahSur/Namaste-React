@@ -132,3 +132,17 @@
 .nav-items>ul>li:hover{
     color: blue;
 }
+
+.shimmer_container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 32px 16px;
+}
+.shimmer_card{
+    width: 200px;
+    height: 400px;
+    background-color: wheat;
+    border-radius: 12px;
+}
