@@ -11,10 +11,10 @@ const Header = () => {
             </div>
             <div className='nav-items'>
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/cart">Cart</a></li>
                     <button className="login_btn" onClick={() => authBtn === "Login" ? setAuthBtn("Logout") : setAuthBtn("Login")}>{authBtn}</button>
                 </ul>
             </div>
