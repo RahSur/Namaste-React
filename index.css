@@ -68,8 +68,12 @@
     flex-wrap: wrap;
     gap: 12px;
     height: 100%;
-    overflow-y: scroll;
     padding-bottom: 32px;
+}
+
+.card-container a{
+    text-decoration: none;
+    color: #000;
 }
 
 .card{
@@ -77,6 +81,9 @@
     padding: 12px;
     background-color:wheat;
     border-radius: 12px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
 }
 .card > img{
     width: 100%;
@@ -166,6 +173,9 @@
     justify-content: center;
     align-items: center;
     margin: 32px;
+}
+.menus{
+    margin: 32px 40px;
 }
 
 .shimmer_container{

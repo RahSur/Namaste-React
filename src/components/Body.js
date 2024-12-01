@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
 import Shimmer from './Shimmer';
+import { Link } from 'react-router-dom';
 
 const Body = () => {
     const [restaurantList, setRestaurantList] = useState([]);
@@ -44,7 +45,9 @@ const Body = () => {
                     </div>
                     <div className='card-container'>
                         {filteredRestaurantList?.map(data => (
-                            <Card key={data.info.id} data={data} />
+                            <Link key={data.info.id} to={"/restaurant/" + data.info.id}>
+                                <Card data={data} />
+                            </Link>
                         ))}
                     </div>
                 </div>
