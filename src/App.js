@@ -7,14 +7,14 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Cart from './components/Cart';
 import Error from './components/Error';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 
 const AppLayout = () => {
     return (
         <>
             <Header />
-            <Body />
+            <Outlet />
             <Footer />
         </>
 
@@ -23,10 +23,30 @@ const AppLayout = () => {
 
 //version used is react router dom @6
 const appRoutes = createBrowserRouter([
-    { path: "/", element: <AppLayout />, errorElement: <Error /> },
-    { path: "/about", element: <About /> },
-    { path: "/contact", element: <Contact /> },
-    { path: "/cart", element: <Cart /> },
+    {
+        path: "/",
+        element: <AppLayout />,
+        children: [
+            {
+                path: '/',
+                element: <Body />
+            },
+            {
+                path: '/about',
+                element: <About />
+            },
+            {
+                path: '/contact',
+                element: <Contact />
+            },
+            {
+                path: '/cart',
+                element: <Cart />
+            },
+
+        ],
+        errorElement: <Error />
+    }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
