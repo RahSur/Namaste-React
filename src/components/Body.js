@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 import Card from './Card';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utils/useOnlinestatus';
 
 const Body = () => {
     const [restaurantList, setRestaurantList] = useState([]);
     const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
     const [searchText, setSearchText] = useState("");
+
+    const status = useOnlineStatus();
 
     useEffect(() => {
         fetchData();
@@ -29,8 +32,15 @@ const Body = () => {
         setFilteredRestaurantList(namedRes);
     }
 
+    console.log("Status", status);
+
+    if (status === false) {
+        return <h1>Check you internet idiot 😒, you're Offline ✖️!!</h1>
+    }
+
     return (
-        restaurantList.length === 0 ? (<Shimmer />) :
+        status === false &&
+            restaurantList.length === 0 ? (<Shimmer />) :
             (
                 <div className='body'>
                     <div className='search_container'>
