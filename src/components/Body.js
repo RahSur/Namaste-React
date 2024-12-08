@@ -42,25 +42,27 @@ const Body = () => {
         status === false &&
             restaurantList.length === 0 ? (<Shimmer />) :
             (
-                <div className='body'>
-                    <div className='search_container'>
-                        <div className='search_box'>
-                            <input type="text" placeholder='Search Restaurants...' value={searchText} onChange={(e) => setSearchText(e.target.value)} />
-                            <span className="close-icon" onClick={() => setSearchText("")}>x</span>
-                            <button className='search_button' onClick={() => { searchBox() }}>Search</button>
+                <div className='mb-10'>
+                    <div className='flex justify-between gap-9 my-6 mx-10'>
+                        <div className='relative'>
+                            <input className='border rounded-xl p-3 w-[700px]' type="text" placeholder='Search Restaurants...' value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+                            <span className="absolute right-24 top-3 w-5 h-5 cursor-pointer" onClick={() => { searchBox(); setSearchText(""); }}>x</span>
+                            <button className='border border-gray-400 bg-gray-200 p-2 rounded-xl ml-6 hover:bg-gray-400' onClick={() => { searchBox() }}>Search</button>
                         </div>
-                        <button onClick={() => { topRated() }}
-                            className="filter_btn">Top Rated Restaurants 4.5+
-                        </button>
+                        <div>
+                            <button onClick={() => { topRated() }}
+                                className="border border-orange-400 bg-orange-100 p-2 rounded-xl pt-2 hover:bg-orange-300">Top Rated Restaurants 4.5+
+                            </button>
+                        </div>
                     </div>
-                    <div className='card-container'>
+                    <div className='flex flex-wrap gap-x-4 gap-y-6 mx-8'>
                         {filteredRestaurantList?.map(data => (
                             <Link key={data.info.id} to={"/restaurant/" + data.info.id}>
                                 <Card data={data} />
                             </Link>
                         ))}
                     </div>
-                </div>
+                </div >
             )
     )
 }

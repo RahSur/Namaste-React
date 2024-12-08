@@ -7,20 +7,20 @@ const Header = () => {
     const [authBtn, setAuthBtn] = useState("Login");
     const status = useOnlinestatus();
     return (
-        <div className='header'>
-            <div className='logo_container'>
-                <img className="logo"
+        <div className='flex justify-between border rounded-xl m-4'>
+            <div className="ml-6">
+                <img className="w-[100px]"
                     src={LOGO_URL} />
             </div>
-            <div className='nav-items'>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/groceries">Groceries</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
-                    <li><Link to="/cart">Cart</Link></li>
-                    <li>{status ? "🟢" : "🔴"}</li>
-                    <button className="login_btn" onClick={() => authBtn === "Login" ? setAuthBtn("Logout") : setAuthBtn("Login")}>{authBtn}</button>
+            <div>
+                <ul className="flex items-center gap-3 m-8">
+                    <li className="hover:text-blue-800"><Link to="/">Home</Link></li>
+                    <li className="hover:text-blue-800"><Link to="/groceries">Groceries</Link></li>
+                    <li className="hover:text-blue-800"><Link to="/about">About</Link></li>
+                    <li className="hover:text-blue-800"><Link to="/contact">Contact</Link></li>
+                    <li className="hover:text-blue-800"><Link to="/cart">Cart</Link></li>
+                    <li className="hover:text-blue-800">{status ? "🟢" : "🔴"}</li>
+                    <button className="bg-blue-200 p-2 rounded-md" onClick={() => authBtn === "Login" ? setAuthBtn("Logout") : setAuthBtn("Login")}>{authBtn}</button>
                 </ul>
             </div>
         </div>

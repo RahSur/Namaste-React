@@ -1,10 +1,8 @@
 const Footer = () => {
     return (
-        <div className='footer'>
+        <div className='flex justify-between items-center w-[100%] px-4 py-1 fixed bottom-0 bg-gray-300'>
             <div className='copy-rights'>Copyrights @2024</div>
-            <div className='links'>
-                <p>Developed by Rahul with ❤️</p>
-            </div>
+            <div className='links'>Developed by Rahul with ❤️</div>
         </div>
     )
 }
