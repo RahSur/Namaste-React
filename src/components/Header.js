@@ -7,7 +7,7 @@ const Header = () => {
     const [authBtn, setAuthBtn] = useState("Login");
     const status = useOnlinestatus();
     return (
-        <div className='flex justify-between border rounded-xl m-4'>
+        <div className='flex justify-between border rounded-xl m-4 shadow-lg'>
             <div className="ml-6">
                 <img className="w-[100px]"
                     src={LOGO_URL} />
