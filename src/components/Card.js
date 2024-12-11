@@ -3,7 +3,7 @@ import { CDN_URL } from "../utils/constants";
 const Card = ({ data }) => {
     const { cloudinaryImageId, name, cuisines, costForTwo, avgRating } = data?.info
     return (
-        <div className='border shadow-md rounded-lg w-[250px] h-[350px] bg-yellow-200 p-3 hover:bg-yellow-400'>
+        <div className='border shadow-md rounded-lg w-[250px] h-[400px] bg-yellow-200 p-3 hover:bg-yellow-400'>
             <img className="w-[250px] h-[200px] rounded-xl" src={CDN_URL + cloudinaryImageId} />
             <h3 className="font-bold text-lg my-2">{name}</h3>
             <p className="italic max-h-12 overflow-hidden">{cuisines.join(", ")}</p>

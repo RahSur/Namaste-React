@@ -34,8 +34,6 @@ const Body = () => {
         setFilteredRestaurantList(namedRes);
     }
 
-    console.log("Status", status);
-
     if (status === false) {
         return <h1>Check you internet idiot 😒, you're Offline ✖️!!</h1>
     }

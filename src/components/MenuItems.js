@@ -5,7 +5,7 @@ const MenuItems = ({ data }) => {
     return (
         <>
             {itemCards.map((item) => (
-                <div className="flex justify-between mb-5 items-center">
+                <div key={item.card.info.id} className="flex justify-between mb-5 items-center border-b-2 border-gray-100 pb-2">
                     <div className="w-9/12">
                         <p className="font-bold text-md">{item.card.info.name}</p>
                         <p className="text-sm font-bold">Rs {item.card.info.price / 100}/-</p>
