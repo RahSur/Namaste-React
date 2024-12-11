@@ -3,10 +3,14 @@ import useResMenu from "../utils/useResMenu";
 import { useParams } from "react-router-dom";
 
 import Catergory from "./Catergory";
+import { useState } from "react";
 
 const Menu = () => {
     const { resId } = useParams();
     const resMenu = useResMenu(resId);
+
+    //controlling child comp Category
+    const [show, setShow] = useState(0);
 
     if (resMenu === null) return <Shimmer />;
 
@@ -21,7 +25,12 @@ const Menu = () => {
 
             <div className="mb-10">
                 {resCatergories.map((item, index) =>
-                    <Catergory key={index} data={item} />
+                    <Catergory
+                        key={index}
+                        data={item}
+                        show={index === show ? true : false}
+                        setShow={() => setShow(index)}
+                    />
                 )}
             </div>
         </div>

@@ -9,12 +9,13 @@ const Header = () => {
     return (
         <div className='flex justify-between border rounded-xl m-4 shadow-lg'>
             <div className="ml-6">
-                <img className="w-[100px]"
-                    src={LOGO_URL} />
+                <Link to="/">
+                    <img className="w-[100px]"
+                        src={LOGO_URL} />
+                </Link>
             </div>
             <div>
-                <ul className="flex items-center gap-3 m-8">
-                    <li className="hover:text-blue-800"><Link to="/">Home</Link></li>
+                <ul className="flex items-center gap-6 m-8">
                     <li className="hover:text-blue-800"><Link to="/groceries">Groceries</Link></li>
                     <li className="hover:text-blue-800"><Link to="/about">About</Link></li>
                     <li className="hover:text-blue-800"><Link to="/contact">Contact</Link></li>

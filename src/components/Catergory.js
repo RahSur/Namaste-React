@@ -1,14 +1,16 @@
 import { useState } from "react";
 import MenuItems from "./MenuItems";
 
-const Catergory = ({ data }) => {
+const Catergory = ({ data, show, setShow }) => {
     const { title } = data.card.card;
     const length = data.card.card.itemCards.length;
 
-    const [show, setShow] = useState(false);
+    //now, each category has its own state,
+    //we have to make it a controlled component to handle expand and close from Parent.
+    //const [show, setShow] = useState(false);
 
     const handleClick = () => {
-        setShow(!show);
+        setShow();
     }
 
 
