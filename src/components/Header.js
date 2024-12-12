@@ -1,11 +1,15 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlinestatus from '../utils/useOnlinestatus';
+import UserContext from '../utils/UserContext';
 
 const Header = () => {
     const [authBtn, setAuthBtn] = useState("Login");
     const status = useOnlinestatus();
+
+    const { loggedInUser } = useContext(UserContext);
+
     return (
         <div className='flex justify-between border rounded-xl m-4 shadow-lg'>
             <div className="ml-6">
@@ -21,6 +25,7 @@ const Header = () => {
                     <li className="hover:text-blue-800"><Link to="/contact">Contact</Link></li>
                     <li className="hover:text-blue-800"><Link to="/cart">Cart</Link></li>
                     <li className="hover:text-blue-800">{status ? "🟢" : "🔴"}</li>
+                    <li className="font-bold mx-3">{loggedInUser}</li>
                     <button className="bg-blue-200 p-2 rounded-md" onClick={() => authBtn === "Login" ? setAuthBtn("Logout") : setAuthBtn("Login")}>{authBtn}</button>
                 </ul>
             </div>

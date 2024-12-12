@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, use } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
 import Body from './components/Body';
@@ -11,6 +11,8 @@ import Error from './components/Error';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Menu from './components/Menu';
 
+import UserContext from './utils/UserContext';
+
 
 const About = lazy(() => import("./components/About"));
 const Contact = lazy(() => import("./components/Contact"));
@@ -19,11 +21,17 @@ const Groceries = lazy(() => import("./components/Groceries"));
 
 
 const AppLayout = () => {
+
+    //perform authentication and get sample data
+    const username = "Rahul";
+
     return (
         <>
-            <Header />
-            <Outlet />
-            <Footer />
+            <UserContext.Provider value={{ loggedInUser: username }}>
+                <Header />
+                <Outlet />
+                <Footer />
+            </UserContext.Provider>
         </>
 
     )

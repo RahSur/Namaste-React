@@ -1,4 +1,5 @@
 import React from 'react';
+import UserContext from '../utils/UserContext';
 
 class Author extends React.Component {
     constructor(props) {
@@ -43,6 +44,11 @@ class Author extends React.Component {
                 {/* <p>{city}, Tamil Nadu, India.</p> */}
                 <p>{location}</p>
                 <p>{bio}</p>
+                <div>
+                    <UserContext.Consumer>
+                        {({ loggedInUser }) => <p className='font-bold m-3'>{loggedInUser}</p>}
+                    </UserContext.Consumer>
+                </div>
             </div>
         )
     }
