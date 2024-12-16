@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, use } from 'react';
+import React, { lazy, Suspense, use, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
 import Body from './components/Body';
@@ -23,11 +23,11 @@ const Groceries = lazy(() => import("./components/Groceries"));
 const AppLayout = () => {
 
     //perform authentication and get sample data
-    const username = "Rahul";
+    const [username, setUserName] = useState("Rahul");
 
     return (
         <>
-            <UserContext.Provider value={{ loggedInUser: username }}>
+            <UserContext.Provider value={{ loggedInUser: username, setUserName }}>
                 <Header />
                 <Outlet />
                 <Footer />

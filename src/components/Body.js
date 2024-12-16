@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Card, { withOpenCard } from './Card';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlinestatus';
+import UserContext from '../utils/UserContext';
 
 const Body = () => {
     const [restaurantList, setRestaurantList] = useState([]);
@@ -12,6 +13,8 @@ const Body = () => {
     const status = useOnlineStatus();
 
     const OpenCard = withOpenCard(Card);
+
+    const { setUserName } = useContext(UserContext);
 
     useEffect(() => {
         fetchData();
@@ -48,6 +51,9 @@ const Body = () => {
                             <input className='border shadow-lg rounded-xl p-3 w-[700px]' type="text" placeholder='Search Restaurants...' value={searchText} onChange={(e) => setSearchText(e.target.value)} />
                             <span className="absolute right-24 top-3 w-5 h-5 cursor-pointer" onClick={() => { searchBox(); setSearchText(""); }}>x</span>
                             <button className='border border-gray-400 bg-gray-200 p-2 rounded-xl ml-6 hover:bg-gray-400' onClick={() => { searchBox() }}>Search</button>
+                        </div>
+                        <div>
+                            <input type='text' className='p-2' onChange={(e) => setUserName(e.target.value)} />
                         </div>
                         <div>
                             <button onClick={() => { topRated() }}
