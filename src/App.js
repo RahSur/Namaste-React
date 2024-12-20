@@ -12,6 +12,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Menu from './components/Menu';
 
 import UserContext from './utils/UserContext';
+import { Provider } from 'react-redux';
+import appStore from './utils/APPsTORE.JS';
 
 
 const About = lazy(() => import("./components/About"));
@@ -27,11 +29,13 @@ const AppLayout = () => {
 
     return (
         <>
-            <UserContext.Provider value={{ loggedInUser: username, setUserName }}>
-                <Header />
-                <Outlet />
-                <Footer />
-            </UserContext.Provider>
+            <Provider store={appStore}>
+                <UserContext.Provider value={{ loggedInUser: username, setUserName }}>
+                    <Header />
+                    <Outlet />
+                    <Footer />
+                </UserContext.Provider>
+            </Provider>
         </>
 
     )
