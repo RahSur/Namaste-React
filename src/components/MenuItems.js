@@ -1,7 +1,14 @@
+import { useDispatch } from "react-redux";
+import { addItem } from '../utils/cartSlice';
 import { CDN_URL } from "../utils/constants";
 
 const MenuItems = ({ data }) => {
     const { itemCards } = data.card.card;
+    const dispatch = useDispatch();
+
+    const handleAddClick = (item) => {
+        dispatch(addItem(item));
+    }
     return (
         <>
             {itemCards.map((item) => (
@@ -13,7 +20,7 @@ const MenuItems = ({ data }) => {
                     </div>
                     <div className="w-2/12">
                         <img className="mt-2" src={item.card.info.imageId ? CDN_URL + item.card.info.imageId : 'https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg'} />
-                        <button className="py-1 px-1 mx-2 my-1 rounded-lg bg-black text-white">Add To Cart</button>
+                        <button className="py-1 px-1 mx-2 my-1 rounded-lg bg-black text-white" onClick={() => handleAddClick(item)}>Add To Cart</button>
                     </div>
                 </div>
             ))}
