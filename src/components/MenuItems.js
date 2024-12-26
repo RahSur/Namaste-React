@@ -5,15 +5,15 @@ const MenuItems = ({ data }) => {
     return (
         <>
             {itemCards.map((item) => (
-                <div key={item.card.info.id} className="flex justify-between mb-5 items-center border-b-2 border-gray-100 pb-2">
+                <div key={item.card.info.id} className="flex justify-between mb- items-center border-b-2 border-gray-100 pb-2">
                     <div className="w-9/12">
                         <p className="font-bold text-md">{item.card.info.name}</p>
                         <p className="text-sm font-bold">Rs {item.card.info.price / 100}/-</p>
                         <p className="italic text-sm">{item.card.info.description}</p>
                     </div>
-                    <div className="w-2/12 relative">
-                        {/* <button className="absolute bottom-0 p-1 mx-2 rounded-md bg-green-100">Add To Cart</button> */}
-                        <img src={CDN_URL + item.card.info.imageId} />
+                    <div className="w-2/12">
+                        <img className="mt-2" src={item.card.info.imageId ? CDN_URL + item.card.info.imageId : 'https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg'} />
+                        <button className="py-1 px-1 mx-2 my-1 rounded-lg bg-black text-white">Add To Cart</button>
                     </div>
                 </div>
             ))}

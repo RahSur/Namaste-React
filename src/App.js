@@ -13,7 +13,7 @@ import Menu from './components/Menu';
 
 import UserContext from './utils/UserContext';
 import { Provider } from 'react-redux';
-import appStore from './utils/APPsTORE.JS';
+import appStore from './utils/appStore';
 
 
 const About = lazy(() => import("./components/About"));
