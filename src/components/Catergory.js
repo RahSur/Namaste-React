@@ -3,6 +3,7 @@ import MenuItems from "./MenuItems";
 
 const Catergory = ({ data, show, setShow }) => {
     const { title } = data.card.card;
+    const { itemCards } = data.card.card;
     const length = data.card.card.itemCards.length;
 
     //now, each category has its own state,
@@ -23,7 +24,7 @@ const Catergory = ({ data, show, setShow }) => {
             {
                 show &&
                 <div className="px-4 py-2 my-5 border-b-4 border-b-gray-400">
-                    <MenuItems data={data} />
+                    <MenuItems data={itemCards} showAddBtn={true} />
                 </div>
             }
         </div>
