@@ -53,7 +53,7 @@ const Body = () => {
                             <button className='border border-gray-400 bg-gray-200 p-2 rounded-xl ml-6 hover:bg-gray-400' onClick={() => { searchBox() }}>Search</button>
                         </div>
                         <div>
-                            <input type='text' className='p-2' onChange={(e) => setUserName(e.target.value)} />
+                            <input type='text' data-testid="searchInp" className='p-2' onChange={(e) => setUserName(e.target.value)} />
                         </div>
                         <div>
                             <button onClick={() => { topRated() }}
