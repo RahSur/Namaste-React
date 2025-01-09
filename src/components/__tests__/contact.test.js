@@ -3,6 +3,23 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 describe("Grouping contact us tests", () => {
+
+    beforeAll(() => {
+        console.log("Before Everything");
+    });
+
+    beforeEach(() => {
+        console.log("Before each Tests");
+    });
+
+    afterEach(() => {
+        console.log("After each Tests");
+    });
+
+    afterAll(() => {
+        console.log("After Everything");
+    });
+
     it("should contact contains a heading", () => {
         render(<Contact />);
         const head = screen.getByRole("heading");
